@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Blog Point - A dynamic platform for diverse blogs on tech, food, news, and more."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Blog Sphere</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="nav container">
+        <div class="logo">
+          <a href="#" class="logo">Blog <span>Sphere</span></a>
+        </div>
+        <div class="nav-button">
+          <!-- Trigger button -->
+          <button class="btn login-btn" onclick="openModal('login')">
+            Login
+          </button>
+          <button class="btn signup-btn" onclick="openModal('signup')">
+            Sign Up
+          </button>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Login</h2>
+            <form id="form" onsubmit="handleSubmit(event)">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required />
+              </div>
+              <button type="submit" class="btn submit-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="home" id="home">
+      <div class="home-text container">
+        <div class="home-title">Trend Developer</div>
+        <span class="home-subtitle">Your Source of great content</span>
+      </div>
+    </section>
+    <section class="about container" id="about">
+      <div class="contentBx">
+        <h2 class="titleText">Author Information</h2>
+        <p class="title-text">
+          Soham Baidya <br />
+          Soham Baidya is a passionate software developer, web developer, and
+          web designer with a deep love for creating engaging digital
+          experiences. Currently pursuing a Bachelor of Technology (B.Tech), he
+          is dedicated to mastering the art of web design and development. His
+          recent project, Blogsphere, developed using HTML, CSS, and JavaScript,
+          demonstrates his creativity and technical skills in building
+          user-friendly and interactive web applications.
+        </p>
+        <a href="#" class="btn2">Read more</a>
+      </div>
+      <div class="imgBx">
+        <img src="img/testi.jpg" alt="" class="fitBg" />
+      </div>
+    </section>
+
+    <div class="post-filter container">
+      <span class="filter-item active-filter" data-filter="all">All</span>
+      <span class="filter-item" data-filter="tech">Tech</span>
+      <span class="filter-item" data-filter="food">Food</span>
+      <span class="filter-item" data-filter="news">News</span>
+    </div>
+
+    <div class="post container">
+      <!-- post1  -->
+      <div class="post--box tech">
+        <img src="img/tech1.jpeg" alt="" class="post-img" />
+        <h2 class="category">Tech</h2>
+        <a href="#" class="post-title">The Rise of AI in Everyday Life</a>
+        <span class="post-date">14 Jan 2023</span>
+        <p class="post-description">
+          Artificial Intelligence (AI) has rapidly transitioned from a
+          futuristic concept to a crucial part of our daily lives. From virtual
+          assistants like Siri and Alexa to personalized recommendations on
+          Netflix and Spotify, AI is shaping the way we interact with
+          technology. It powers smart homes, enhances healthcare through
+          predictive analytics, and drives advancements in autonomous vehicles.
+          As AI continues to evolve, its integration into everyday tasks will
+          only deepen, revolutionizing industries and changing the future of
+          work.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Sb</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post2  -->
+      <div class="post--box food">
+        <img src="img/food1.jpeg" alt="" class="post-img" />
+        <h2 class="category">Food</h2>
+        <a href="#" class="post-title"
+          >The Farm-to-Table Movement: Why Fresh Matters</a
+        >
+        <span class="post-date">29 June 2024</span>
+        <p class="post-description">
+          The farm-to-table movement has gained momentum in recent years,
+          focusing on sourcing food directly from local farms. This approach not
+          only ensures fresher, more flavorful ingredients but also supports
+          local economies and promotes sustainable farming practices. By
+          reducing the distance food travels, farm-to-table dining also helps
+          lower the carbon footprint. More than just a trend, it's a shift
+          towards mindful eating that emphasizes quality, sustainability, and
+          community.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post3  -->
+      <div class="post--box news">
+        <img src="img/news1.webp" alt="" class="post-img" />
+        <h2 class="category">News</h2>
+        <a href="#" class="post-title"
+          >The Importance of Media Literacy in the Digital Age</a
+        >
+        <span class="post-date">23 july 2024</span>
+        <p class="post-description">
+          In an era flooded with information, media literacy has never been more
+          crucial. With the rise of social media and digital news platforms,
+          distinguishing between credible sources and misinformation is
+          challenging. Media literacy equips individuals with the skills to
+          critically analyze news content, understand biases, and verify
+          information before sharing. As we navigate this complex landscape,
+          promoting media literacy can help ensure that society remains informed
+          and engaged, fostering a healthier public discourse.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post4  -->
+      <div class="post--box tech">
+        <img src="img/tech2.jpeg" alt="" class="post-img" />
+        <h2 class="category">Tech</h2>
+        <a href="#" class="post-title">
+          5G Technology: Revolutionizing Connectivity</a
+        >
+        <span class="post-date">13 Feb 2024</span>
+        <p class="post-description">
+          The rollout of 5G technology promises to revolutionize how we connect
+          and communicate. With speeds up to 100 times faster than 4G, 5G
+          enables real-time streaming, seamless video conferencing, and the rise
+          of smart cities. Beyond faster internet for consumers, industries such
+          as healthcare, transportation, and manufacturing are set to benefit
+          from the ultra-reliable, low-latency connections that 5G offers. The
+          future of communication is not just faster—it's smarter and more
+          efficient, bringing unprecedented possibilities for innovation.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post5 -->
+      <div class="post--box food">
+        <img src="img/food2.jpeg" alt="" class="post-img" />
+        <h2 class="category">Food</h2>
+        <a href="#" class="post-title">The Power of Plant-Based Diets</a>
+        <span class="post-date">16 September 2024</span>
+        <p class="post-description">
+          Plant-based diets are becoming increasingly popular, and for good
+          reason. Packed with nutrients, fiber, and antioxidants, a plant-based
+          diet can help reduce the risk of chronic diseases such as heart
+          disease and diabetes. Beyond health benefits, shifting to plant-based
+          meals can significantly reduce environmental impact by lowering
+          greenhouse gas emissions and conserving water resources. Whether
+          you're going fully vegan or just incorporating more plant-based meals
+          into your routine, it's a choice that benefits both you and the
+          planet.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">MKh</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post6  -->
+      <div class="post--box news">
+        <img src="img/news2.webp" alt="" class="post-img" />
+        <h2 class="category">News</h2>
+        <a href="#" class="post-title"
+          >The Impact of Local News on Community Engagement</a
+        >
+        <span class="post-date">26 August 2024</span>
+        <p class="post-description">
+          Local news plays a vital role in fostering community engagement and
+          awareness. By covering local events, issues, and achievements, local
+          news outlets connect residents and provide a platform for diverse
+          voices. This coverage encourages civic participation, whether through
+          voting, attending community meetings, or supporting local businesses.
+          In an age dominated by national and global news, prioritizing local
+          journalism is essential for strengthening community ties and ensuring
+          that local issues receive the attention they deserve.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post7 -->
+      <div class="post--box tech">
+        <img src="img/tech3.jpeg" alt="" class="post-img" />
+        <h2 class="category">Tech</h2>
+        <a href="#" class="post-title">Blockchain Beyond Cryptocurrency</a>
+        <span class="post-date">23 March 2024</span>
+        <p class="post-description">
+          While blockchain is most commonly associated with cryptocurrencies
+          like Bitcoin, its potential goes far beyond digital currencies. This
+          decentralized, secure ledger system is being used to enhance
+          transparency in supply chains, safeguard voting systems, and even
+          revolutionize the way intellectual property is protected. Blockchain's
+          ability to provide a tamper-proof record of transactions offers a
+          transformative solution for industries seeking more security and trust
+          in their operations. As technology matures, blockchain could reshape
+          the global economy.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post8  -->
+      <div class="post--box food">
+        <img src="img/food3.jpg" alt="" class="post-img" />
+        <h2 class="category">Food</h2>
+        <a href="#" class="post-title">
+          The Art of Fermentation: Gut Health and Flavor</a
+        >
+        <span class="post-date">12 May 2024</span>
+        <p class="post-description">
+          Fermented foods like kimchi, sauerkraut, kombucha, and yogurt are not
+          only delicious but also packed with probiotics, which promote gut
+          health. Fermentation is an age-old technique that enhances the
+          nutritional value of food, aids digestion, and boosts the immune
+          system. As more people become aware of the importance of gut health,
+          fermented foods are gaining popularity for their ability to introduce
+          beneficial bacteria into the digestive system while adding unique
+          flavors to meals.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+      <!-- post9  -->
+      <div class="post--box news">
+        <img src="img/news3.jpeg" alt="" class="post-img" />
+        <h2 class="category">News</h2>
+        <a href="#" class="post-title"
+          >The Evolution of News Delivery: From Print to Digital</a
+        >
+        <span class="post-date">21 April 2023</span>
+        <p class="post-description">
+          The transition from print to digital news has transformed how we
+          consume information. While traditional newspapers still hold value,
+          digital platforms provide instant access to news from around the
+          world. The rise of podcasts, video news, and social media has
+          diversified how stories are told and shared. However, this shift also
+          raises questions about attention spans, information overload, and the
+          quality of journalism. As we embrace new technologies, it’s important
+          to balance the speed of news delivery with accuracy and in-depth
+          reporting.
+        </p>
+        <div class="profile">
+          <img src="img/testi.jpg" alt="" class="profile-img" />
+          <span class="profile-name">Soham</span>
+        </div>
+        <!-- like section  -->
+        <div class="like-section">
+          <button class="like-button" onclick="toggleLike(this)">
+            👍 Like
+          </button>
+          <span class="like-count">0 Likes</span>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h3>Comments:</h3>
+          <div class="comments-list"></div>
+          <textarea
+            class="comment-input"
+            placeholder="Add a comment..."
+          ></textarea>
+          <button class="submit-comment" onclick="addComment(this)">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="sec aboutus">
+          <h3>About Us - Blog Sphere</h3>
+          <p>
+            At Blog Sphere, we’re passionate about connecting voices and ideas.
+            Our platform is a hub for diverse blogs on topics like tech,
+            lifestyle, travel, and more. Whether you're a writer or reader, Blog
+            Point is where creativity meets conversation, offering fresh
+            perspectives and inspiring stories for everyone. Join us and become
+            part of a vibrant community where ideas come to life!
+          </p>
+          <ul class="scl">
+            <li class="item">
+              <a href="#facebook"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="item">
+              <a href="#twitter"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="item">
+              <a href="#instagram"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="item">
+              <a href="#linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-right">
+          <div class="sec quicklinks">
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </div>
+          <div class="sec contactBx">
+            <h2>Contact Info</h2>
+            <ul>
+              <li>
+                <span><i class="fa-solid fa-street-view"></i></span>
+                <span>700078, Jadavpur <br />West Bengal<br />India</span>
+              </li>
+              <li>
+                <span><i class="fa-solid fa-envelope"></i></span>
+                <p>
+                  <a href="mailto:baidyasoham813@gmail.com"
+                    >baidyasoham813@gmail.com</a
+                  >
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-container">
+        <!-- Existing Footer Content -->
+      </div>
+
+      <!-- Back to Top Button -->
+      <div id="topBtn">
+        <a href="#"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

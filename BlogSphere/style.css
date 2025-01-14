@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Ubuntu:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+}
+
+:root {
+    --primary-color: #4dc6e1;
+    --secondary-color: #0a0f10;
+    --text-color: #ffffff;
+    --bg-color: #1a1e21;
+    --highlight-color: #ff7b54;
+    --container-color: #222; /* Defined missing variable */
+}
+
+body {
+    font-family: "Ubuntu", system-ui;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+::selection {
+    background: var(--highlight-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1068px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 3rem 0;
+}
+
+/* nav section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    background-color: rgba(10, 10, 30, 0.9);
+    transition: background-color 0.3s ease-in-out;
+}
+
+header.shadow {
+    background-color: rgba(10, 10, 30, 1);
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.login {
+    padding: 8px 14px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.5s;
+}
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--highlight-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect */
+.btn:hover {
+    background-color: #ff9972; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Specific Styles for Login and Signup Buttons */
+.login-btn {
+    margin-right: 10px; /* Spacing between buttons */
+}
+
+.signup-btn {
+    background-color: var(--primary-color); /* Specific background for sign up */
+}
+
+.signup-btn:hover {
+    background-color: hsl(199, 98%, 56%); /* Change color on hover */
+}
+
+.login:hover {
+    background: hsl(199, 98%, 56%);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: var(--bg-color); /* Use your existing background color */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    width: 300px; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--highlight-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: var(--highlight-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #ff9972; /* Change color on hover */
+}
+
+
+/* home section */
+.home {
+    width: 100%;
+    min-height: 440px;
+    background: url(https://cdn.pixabay.com/photo/2018/05/28/23/35/sunset-3437560_1280.jpg) no-repeat;
+    background-size: cover;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.home-text {
+    color: var(--bg-color);
+    text-align: center;
+}
+
+.home-title {
+    font-size: 3.5rem;
+}
+
+.home-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* about section */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about .contentBx {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.titleText {
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.about .imgBx {
+    flex: 1;
+    min-height: 500px;
+}
+
+.about .imgBx img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.imgBx {
+    position: relative;
+    width: 70%; /* Adjust as needed */
+    height: 40%; /* Adjust as needed */
+    border-radius: 50%; /* Makes the container circular */
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds a shadow around the circle */
+    transition: transform 0.3s ease-in-out; /* Adds smooth scaling on hover */
+}
+
+.imgBx img.fitBg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    object-position: center; /* Centers the image */
+    transition: transform 0.6s ease; /* Smooth transition for animation */
+    transform: scale(1); /* Default scale */
+}
+
+/* Animation on hover */
+.imgBx:hover img.fitBg {
+    transform: scale(1.1) rotate(3deg); /* Zoom in and rotate slightly */
+}
+
+.imgBx:hover {
+    transform: translateY(-10px); /* Optional: Moves the entire container slightly upwards on hover */
+}
+
+
+.btn2 {
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--highlight-color);
+    color: #fff;
+    border-radius: 25px;
+    border: none;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn2:hover {
+    background: #ff9972;
+    transform: scale(1.05);
+}
+
+/* post section */
+.post-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.filter-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-item:hover {
+    background-color: var(--highlight-color);
+    color: #fff;
+}
+
+.post {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.post--box {
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post--box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-img {
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+.post-date {
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.post-description {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin: 5px 0 10px;
+}
+
+/* profile section */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.profile-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+/* Like and Comment Section Styling */
+.like-section {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    color: var(--highlight-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.like-button:hover {
+    color: #ff9972; /* Change color on hover */
+}
+
+.like-count {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+.comments-section {
+    margin-top: 20px;
+    border-top: 1px solid var(--highlight-color);
+    padding-top: 15px;
+}
+
+.comments-list {
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+}
+
+.submit-comment {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-comment:hover {
+    background-color: #ff9972; /* Change color on hover */
+}
+
+.comments-list div {
+    padding: 5px;
+    border-bottom: 1px solid var(--highlight-color);
+    color: var(--text-color);
+}
+
+/* Last comment styling */
+.comments-list div:last-child {
+    border-bottom: none;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: var(--container-color); /* Dark background for footer */
+    padding: 2rem 0;
+    color: var(--bg-color); /* White text */
+}
+
+.footer-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-container .sec h3{
+    color: var(--text-color);
+    font-size: 2rem;
+    padding-bottom: 7px;
+}
+
+.sec.aboutus {
+    max-width: 50%;
+}
+
+.sec.aboutus p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ccc; /* Lighter text for contrast */
+}
+
+.scl {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    gap: 15px;
+    margin-right: 1rem;
+}
+
+.scl .item {
+    list-style: none;
+}
+
+.item {
+    background: transparent;
+    border-color: #1a1e21;
+    border: 2px solid var(--highlight-color);
+    border-radius: 49%;
+}
+
+.scl .item a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--secondary-color); /* Light background for icons */
+    color: var(--highlight-color); /* Icon color */
+    font-size: 1.2rem;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.scl .item a:hover {
+    background-color: hsl(199, 98%, 56%); /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+.footer-right{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+/* Quick Links Styling */
+.quicklinks{
+    margin-top: 1rem;
+    display: block;
+    justify-content: start;
+    align-items: center;
+    /* padding: 12%; */
+}
+.quicklinks h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.quicklinks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quicklinks ul li {
+    margin-bottom: 10px;
+}
+
+.quicklinks ul li a {
+    color: var(--highlight-color);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.quicklinks ul li a:hover {
+    color: #ff9972; /* Change color on hover */
+}
+
+/* Contact Info Styling */
+.contactBx{
+    margin-top: -3.7rem;
+}
+.contactBx h2 {
+    font-size: 1.8rem;
+    color: var(--text-color); /* Title text color */
+    margin-bottom: 1rem;
+}
+
+.contactBx ul {
+    list-style: none;
+    padding: 0;
+}
+.contactBx ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between contact items */
+}
+
+.contactBx ul li i {
+    font-size: 1.2rem; /* Icon size */
+    color: var(--highlight-color); /* Icon color */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.contactBx ul li span {
+    font-size: 1rem; /* Text size */
+    color: #ccc; /* Lighter color for text */
+}
+.contactBx ul li a {
+    color: var(--highlight-color); /* Use highlight color for email links */
+    text-decoration: none; /* Remove underline from email links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.contactBx ul li a:hover {
+    color: #ff9972; /* Change color on hover */
+    text-decoration: underline; /* Underline on hover for emphasis */
+}
+/* Back to Top Button */
+#topBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background-color: var(--highlight-color); /* Button color */
+    color: var(--text-color); /* Icon color */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 999; /* Ensure it stays on top */
+    opacity: 0;
+    visibility: hidden;
+}
+
+#topBtn:hover {
+    background-color: #ff9972; /* Change color on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Display Back to Top Button when page scrolls */
+#topBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* FontAwesome Arrow Icon */
+#topBtn i {
+    color: var(--text-color); /* Icon color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column; /* Stack about section on smaller screens */
+        text-align: center;
+    }
+
+    .about .contentBx {
+        padding-right: 0; /* Remove right padding */
+        margin-bottom: 20px; /* Space below content box */
+    }
+
+    .home-title {
+        font-size: 2.5rem; /* Adjust title size for smaller screens */
+    }
+
+    .home-subtitle {
+        font-size: 0.8rem; /* Adjust subtitle size for smaller screens */
+    }
+
+    .post {
+        grid-template-columns: 1fr; /* Single column for posts on smaller screens */
+    }
+
+    .login {
+        font-size: 0.8rem; /* Adjust button font size */
+    }
+
+    .profile-img {
+        width: 30px; /* Adjust profile image size */
+        height: 30px; /* Adjust profile image size */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Stack footer items */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .scl {
+        justify-content: center; /* Center social icons */
+    }
+}
